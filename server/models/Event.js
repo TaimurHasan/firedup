@@ -15,7 +15,7 @@ const eventSchema = new Schema(
             required: 'Your event needs a set time!'
         },
         eventTime: {
-            type: Timestamp,
+            type: Date,
             required: true
         },
         createdAt: {
@@ -28,4 +28,8 @@ const eventSchema = new Schema(
             required: true
         }
     }
-)
+);
+
+const Event = model('Event', eventSchema);
+
+module.exports = Event;
