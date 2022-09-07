@@ -1,0 +1,29 @@
+{
+  "name": "firedup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaimurHasan/firedup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TaimurHasan/firedup/issues"
+  },
+  "homepage": "https://github.com/TaimurHasan/firedup#readme",
+  "dependencies": {
+    "apollo-server-express": "^3.10.2",
+    "bcrypt": "^5.0.1",
+    "express": "^4.18.1",
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.5.5"
+  }
+}
