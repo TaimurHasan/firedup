@@ -1,3 +1,4 @@
+const { Timestamp } = require('bson');
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
@@ -9,9 +10,13 @@ const eventSchema = new Schema(
             minlength: 1,
             maxlength: 280
         },
-        eventTime: {
+        eventDate: {
             type: Date,
             required: 'Your event needs a set time!'
+        },
+        eventTime: {
+            type: Timestamp,
+            required: true
         },
         createdAt: {
             type: Date,
