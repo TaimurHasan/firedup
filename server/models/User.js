@@ -20,12 +20,12 @@ const userSchema = new Schema(
             required: true,
             minlength: 5
         },
-        // events: [
-        //     {
-        //         type: Schema.Types.ObjectId,
-        //         ref: 'Event'
-        //     }
-        // ]
+        events: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Event'
+            }
+        ]
     },
     {
         toJSON: {
