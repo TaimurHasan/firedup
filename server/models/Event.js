@@ -15,7 +15,7 @@ const eventSchema = new Schema(
             required: 'Your event needs a set time!'
         },
         eventTime: {
-            type: Date,
+            type: String,
             required: true
         },
         createdAt: {
@@ -26,7 +26,13 @@ const eventSchema = new Schema(
         username: {
             type: String,
             required: true
-        }
+        },
+        attendees: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: 'User'
+            }
+        ]
     }
 );
 
