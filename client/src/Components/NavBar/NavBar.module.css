@@ -32,6 +32,7 @@
 .NavList {
     display: flex;
     justify-content: space-around;
+    margin: 0;
 }
 
 .NavList li {
@@ -64,6 +65,8 @@ span {
     }
 
     .NavBar .MobileNavigation .Hamburger {
+        position: absolute;
+        right: 10.5%;
         cursor: pointer;
     }
 
