@@ -22,7 +22,7 @@ function NavLinks (props) {
                     animate={animateTo}
                     transition={{delay: 0.40}}
                 >
-                    <a href="./">Login</a>
+                    <a href="./login">Login</a>
                 </motion.li>
             </ul>
     )

@@ -3,7 +3,7 @@ import classes from "./Hero.module.css"
 
 const Hero = () => {
     return(
-        <section className={`d-flex justify-content-center align-items-center ${classes.initialState}`}>
+        <section className={`d-flex justify-content-center align-items-center ${classes.hero}`}>
             <div>
                 
             </div>

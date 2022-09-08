@@ -5,7 +5,7 @@ import classes from '../NavBar/NavBar.module.css'
 
 const Header = () => {
     return(
-        <div className={classes.NavBar}>
+        <div className={`container ${classes.NavBar}`}>
             <div>
                 <h1 className="my-2">fired up</h1>
             </div>
