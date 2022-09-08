@@ -6,6 +6,7 @@ import React from 'react';
 import Header from './Components/Header'
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 
 const httpLink = createHttpLink({
@@ -46,6 +47,10 @@ function App() {
               <Route
                 path="/signup"
                 element= {<Signup />}
+              />
+              <Route
+                path="/dashboard"
+                element= {<Dashboard />}
               />
             </Routes>
           </div>
