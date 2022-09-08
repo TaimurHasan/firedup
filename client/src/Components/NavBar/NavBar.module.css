@@ -10,6 +10,12 @@
 .NavBar a {
     flex: 0 50%;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.NavBar a:hover {
+    color: #fc966e;
 }
 
 .NavBar h1:hover {

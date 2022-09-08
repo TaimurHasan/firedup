@@ -22,6 +22,13 @@ const resolvers = {
     },
     Mutation: {
         addUser: async (parent, args) => {
+            const username = args.username;
+            const found = await User.findOne({ username })
+
+            if(found) {
+                throw new AuthenticationError('This username is already taken!');
+            };
+
             const user = await User.create(args);
             const token = signToken(user);
 
