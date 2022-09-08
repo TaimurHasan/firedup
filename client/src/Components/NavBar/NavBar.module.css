@@ -1,0 +1,104 @@
+.NavBar {
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    font-size: 20px;
+}
+
+.NavBar a {
+    flex: 0 50%;
+    cursor: pointer;
+}
+
+.NavBar h1:hover {
+    color: rgb(255, 163, 64);
+    transition: all 0.2s ease-in-out;
+}
+
+.NavBar .Navigation {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+ 
+.NavBar .MobileNavigation {
+    display: none;
+}
+
+.NavList {
+    display: flex;
+    justify-content: space-around;
+}
+
+.NavList li {
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.NavList li a:hover, .NavList li span:hover {
+    color:  rgb(255, 163, 64);
+    transition: all 0.3s ease-in-out;
+}   
+
+span {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 990px) {
+    .NavBar {
+        font-size: 100%;
+    }
+
+    .NavBar .Navigation {
+        display: none;
+    }
+
+    .NavBar .MobileNavigation {
+        display: flex;
+        align-items: center;
+    }
+
+    .NavBar .MobileNavigation .Hamburger {
+        cursor: pointer;
+    }
+
+    .NavBar nav ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        align-items: flex-end;
+        top: 80px;
+        right: 9.5%;
+    }
+
+    .NavBar nav ul li {
+        float: right;
+        margin: 5%;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .NavBar nav ul li a {
+        text-align: center;
+    }
+
+    .NavBar {
+        opacity: 1;
+    }
+
+    .NavList li a:hover, .NavList li span:hover {
+        color:  black;
+        transition: none;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .NavBar a {
+        flex: 0 60%;
+    }
+}
