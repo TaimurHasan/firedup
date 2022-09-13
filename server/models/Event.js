@@ -15,10 +15,6 @@ const eventSchema = new Schema(
             required: 'Your event needs a set time!',
             get: timestamp => dateFormat(timestamp) 
         },
-        eventTime: {
-            type: String,
-            required: true
-        },
         createdAt: {
             type: Date,
             default: Date.now,
