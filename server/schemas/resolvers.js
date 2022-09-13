@@ -79,6 +79,23 @@ const resolvers = {
             };
 
             throw new AuthenticationError('You need to be logged in!')
+        },
+        addFriend: async(parent, { friendId }, context) => {
+            if(context.user) {
+                if(context.user._id !== friendId) {
+                    const updatedUser = await User.findOneAndUpdate(
+                        { _id: context.user._id },
+                        { $addToSet: { friends: friendId } },
+                        { new: true }
+                    ).populate('friends');
+
+                    return updatedUser;
+                } else {
+                    throw new AuthenticationError('Cannot add yourself as a friend!');
+                };
+            };
+
+            throw new AuthenticationError('You need to be logged in!')
         }
     }
 };
