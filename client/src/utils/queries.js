@@ -5,17 +5,20 @@ export const QUERY_ME = gql`
         me {
         _id
         username
+        friends {
+            _id
+            username
+        }
         events {
             _id
             eventTitle
             eventDate
-            eventTime
             attendees {
             _id
             }
         }
         }
-    } 
+    }
 `
 export const QUERY_EVENTS = gql`
     query Events($username: String!) {
