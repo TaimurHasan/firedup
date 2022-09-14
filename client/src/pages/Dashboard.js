@@ -17,7 +17,7 @@ const Dashboard = () => {
 
     return(
         <div className="container">
-            <h2 className="my-4">{user.username}</h2>
+            <h2 className="my-4">Welcome, {user.username}!</h2>
             <div className="container d-flex">
                 <div className="col-lg-7">
                     <EventList events = {user.events} />

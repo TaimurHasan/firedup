@@ -29,3 +29,12 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_EVENT = gql`
+  mutation AddEvent($eventTitle: String!, $eventDate: String!, $attendees: [ID]) {
+    addEvent(eventTitle: $eventTitle, eventDate: $eventDate, attendees: $attendees) {
+      _id
+      eventDate
+    }
+  }
+`

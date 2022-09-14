@@ -7,6 +7,7 @@ import Header from './Components/Header'
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
+import AddEvent from './pages/AddEvent';
 import Home from './pages/Home';
 
 const httpLink = createHttpLink({
@@ -51,6 +52,10 @@ function App() {
               <Route
                 path="/dashboard"
                 element= {<Dashboard />}
+              />
+              <Route
+                path="/addevent"
+                element= {<AddEvent />}
               />
             </Routes>
           </div>
