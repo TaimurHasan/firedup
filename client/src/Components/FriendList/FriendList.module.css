@@ -1,0 +1,20 @@
+.friendLink {
+    text-decoration: none;
+}
+
+.friendCard {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(228,136,96, 0.4);
+    border-radius: 5px;
+}
+
+.friendCard h4 {
+    font-size: 20px;
+    color: rgb(43, 41, 41);
+}
+
+.addFriendBtn:hover {
+    color: rgba(228,136,96, 1);
+    cursor: pointer;
+}
