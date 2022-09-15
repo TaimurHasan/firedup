@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import { ADD_EVENT } from "../utils/mutations";
+import classes from "../css/AddEvent.module.css"
 
 const AddEvent = () => {
     const [formState, setFormState] = useState({ eventTitle: '', eventDate: '', eventTime: ''});
@@ -10,16 +11,17 @@ const AddEvent = () => {
     const { data } = useQuery(QUERY_ME);
     const [addEvent, { error }] = useMutation(ADD_EVENT);
 
-    const user = data?.me || {};
+    const userFriends = data?.me.friends || [];
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         const { eventTitle, eventTime, eventDate} = formState;
         
         const eventDateToAdd = `${eventDate}T${eventTime}`;
+        console.log(attendees);
 
         try {
-            const { data } = await addEvent({
+            await addEvent({
                 variables: {
                     eventTitle,
                     eventDate: eventDateToAdd,
@@ -39,6 +41,24 @@ const AddEvent = () => {
             [name]: value
         });
     };
+
+    const handleAddFriend = (event) => {
+        event.preventDefault();
+        const friendId = event.target.getAttribute("data-friend-id");
+        const friendIndex = attendees.indexOf(friendId);
+
+        if(friendIndex === -1) {
+            setAttendees([
+                ...attendees,
+                friendId
+            ])
+        } else {
+            const newAttendees = [...attendees];
+            newAttendees.splice(friendIndex, 1);
+            setAttendees(newAttendees);
+        }
+        console.log(attendees)
+    }
 
     return(
         <div className="container">
@@ -75,12 +95,21 @@ const AddEvent = () => {
                     onChange={handleChange}
                 />
                 </div>
-                {/* {error ? (
-                <div>
-                    <p className="error-text">The provided credentials are incorrect</p>
+                <div className="my-3">
+                    <label>Invite your friends!:</label>
+                    <div className={`d-flex border`}>
+                        {userFriends && userFriends.map(friend => (
+                            <button data-friend-id={friend._id} key={friend._id} onClick={handleAddFriend} className={`border ${classes.friendItem} ${attendees && attendees.indexOf(friend._id) !== -1 && classes.friendClicked}`}>{friend.username}</button>
+                        ))}
+                    </div>
                 </div>
-                ) : null} */}
+                {error ? (
+                <div>
+                    <p className="error-text">Please ensure all details are filled out!</p>
+                </div>
+                ) : null}
                 <div className="flex-row flex-end">
+                
                 <button type="submit">Fire Up</button>
                 </div>
             </form>

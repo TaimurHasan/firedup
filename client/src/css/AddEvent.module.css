@@ -1,0 +1,17 @@
+.attendeeItem {
+    margin: 1%;
+    padding: 4px;
+    border-radius: 15px;
+}
+
+.friendItem {
+    margin: 1%;
+    padding: 4px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.friendClicked {
+    background-color: black;
+    color: white;
+}
