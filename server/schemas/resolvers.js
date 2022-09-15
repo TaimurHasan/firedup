@@ -80,6 +80,27 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in!')
         },
+        deleteEvent: async (parent, { eventId }, context) => {
+            if(context.user) {
+                const event = await Event.findOne({ _id: eventId });
+                
+                if(event && event.username === context.user.username) {
+                    await Event.findByIdAndDelete({ _id: eventId });
+
+                    await User.findByIdAndUpdate(
+                        { _id: context.user._id },
+                        { $pull: { events: eventId } },
+                        { new: true }
+                    );
+
+                    return event;
+                } else {
+                    throw new AuthenticationError('No event found!');
+                }
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
+        },
         addFriend: async(parent, { friendId }, context) => {
             if(context.user) {
                 if(context.user._id !== friendId) {

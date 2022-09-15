@@ -32,6 +32,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         addEvent(eventTitle: String!, eventDate: String!, attendees: [ID]): Event
+        deleteEvent(eventId: ID!): Event
         addFriend(friendId: ID!): User
     }
 `;

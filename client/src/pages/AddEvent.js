@@ -1,21 +1,35 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
+import { ADD_EVENT } from "../utils/mutations";
 
 const AddEvent = () => {
     const [formState, setFormState] = useState({ eventTitle: '', eventDate: '', eventTime: ''});
     const [attendees, setAttendees] = useState([]);
 
     const { data } = useQuery(QUERY_ME);
+    const [addEvent, { error }] = useMutation(ADD_EVENT);
 
     const user = data?.me || {};
 
-    const handleFormSubmit = (event) => {
+    const handleFormSubmit = async (event) => {
         event.preventDefault();
         const { eventTitle, eventTime, eventDate} = formState;
         
-        const eventDateToAdd = `${eventDate}T${eventTime}`
-        console.log(eventDateToAdd)
+        const eventDateToAdd = `${eventDate}T${eventTime}`;
+
+        try {
+            const { data } = await addEvent({
+                variables: {
+                    eventTitle,
+                    eventDate: eventDateToAdd,
+                    attendees
+                }
+            })
+        } catch (e) {
+            console.log(e);
+        }
+        
     };
 
     const handleChange = (event) => {
@@ -28,6 +42,7 @@ const AddEvent = () => {
 
     return(
         <div className="container">
+            <h2>Your Event Details:</h2>
             <form onSubmit={handleFormSubmit}>
                 <div className="my-2">
                 <label htmlFor="eventTitle">Enter Title:</label>
@@ -66,7 +81,7 @@ const AddEvent = () => {
                 </div>
                 ) : null} */}
                 <div className="flex-row flex-end">
-                <button type="submit">Login</button>
+                <button type="submit">Fire Up</button>
                 </div>
             </form>
         </div>

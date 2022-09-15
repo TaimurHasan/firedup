@@ -28,3 +28,11 @@
     color: rgba(228,136,96, 1);
     cursor: pointer;
 }
+
+.deleteEventBtn {
+    color: black;
+}
+
+.deleteEventBtn:hover {
+    color: white;
+}
