@@ -1,6 +1,5 @@
-const { Timestamp } = require('bson');
 const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const moment = require('moment');
 
 const eventSchema = new Schema(
     {
@@ -13,12 +12,12 @@ const eventSchema = new Schema(
         eventDate: {
             type: Date,
             required: 'Your event needs a set time!',
-            get: timestamp => dateFormat(timestamp) 
+            get: timestamp => moment(timestamp).format("MMM Do YYYY, h:mm a")
         },
         createdAt: {
             type: Date,
             default: Date.now,
-            get: timestamp => dateFormat(timestamp) 
+            get: timestamp => moment(timestamp).format("MMM Do YYYY, h:mm a")
         },
         username: {
             type: String,
@@ -30,6 +29,11 @@ const eventSchema = new Schema(
               ref: 'User'
             }
         ]
+    },
+    {
+        toJSON: {
+            getters: true
+        }
     }
 );
 

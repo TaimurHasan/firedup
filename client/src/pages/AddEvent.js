@@ -18,19 +18,19 @@ const AddEvent = () => {
         const { eventTitle, eventTime, eventDate} = formState;
         
         const eventDateToAdd = `${eventDate}T${eventTime}`;
-        console.log(attendees);
+        console.log(eventDateToAdd);
 
-        try {
-            await addEvent({
-                variables: {
-                    eventTitle,
-                    eventDate: eventDateToAdd,
-                    attendees
-                }
-            })
-        } catch (e) {
-            console.log(e);
-        }
+        // try {
+        //     await addEvent({
+        //         variables: {
+        //             eventTitle,
+        //             eventDate: eventDateToAdd,
+        //             attendees
+        //         }
+        //     })
+        // } catch (e) {
+        //     console.log(e);
+        // }
         
     };
 
