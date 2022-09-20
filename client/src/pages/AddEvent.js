@@ -26,7 +26,9 @@ const AddEvent = () => {
                     eventDate: eventDateToAdd,
                     attendees
                 }
-            })
+            });
+
+            window.location.replace('/dashboard');
         } catch (e) {
             console.log(e);
         }
@@ -41,6 +43,7 @@ const AddEvent = () => {
         });
     };
 
+    // separately handle adding a friend to attendees list
     const handleAddFriend = (event) => {
         event.preventDefault();
         const friendId = event.target.getAttribute("data-friend-id");
@@ -56,7 +59,6 @@ const AddEvent = () => {
             newAttendees.splice(friendIndex, 1);
             setAttendees(newAttendees);
         }
-        console.log(attendees)
     }
 
     return(

@@ -16,7 +16,7 @@ function NavLinks (props) {
                     animate={animateTo}
                     transition={{delay: 0.10}}
                 >
-                    <a href="./">Home</a>
+                    <a href="/">Home</a>
                 </motion.li>
                 <motion.li 
                     onClick={() => props.isMobile && props.closeMobileMenu()}
@@ -24,7 +24,7 @@ function NavLinks (props) {
                     animate={animateTo}
                     transition={{delay: 0.20}}
                 >
-                    <a href="./login">Login</a>
+                    <a href="/login">Login</a>
                 </motion.li>
             </ul>
         )
@@ -38,7 +38,7 @@ function NavLinks (props) {
                     animate={animateTo}
                     transition={{delay: 0.10}}
                 >
-                    <a href="./dashboard"> Dashboard</a>
+                    <a href="/dashboard"> Dashboard</a>
                 </motion.li>
                 <motion.li 
                     onClick={() => props.isMobile && props.closeMobileMenu()}
@@ -46,7 +46,7 @@ function NavLinks (props) {
                     animate={animateTo}
                     transition={{delay: 0.20}}
                 >
-                    <a href="./" onClick={() => Auth.logout()}>Logout</a>
+                    <a href="/" onClick={() => Auth.logout()}>Logout</a>
                 </motion.li>
             </ul>
     )

@@ -2,7 +2,8 @@ import React from "react";
 import classes from './Event.module.css';
 import { useMutation } from '@apollo/client';
 import { DELETE_EVENT } from "../../utils/mutations";
-import { AiOutlinePlusCircle, AiOutlineCloseSquare } from 'react-icons/ai'
+import { dateFormat } from "../../utils/dateFormat";
+import { AiOutlinePlusCircle, AiFillDelete } from 'react-icons/ai'
 
 const EventList = ({ events }) => {
     const [deleteEvent, { error }] = useMutation(DELETE_EVENT);
@@ -33,15 +34,15 @@ const EventList = ({ events }) => {
             {events.length ? (
                 <div className="mx-1">
                     {events.map(event => (
-                        <a className={classes.eventLink} href='/' key={event._id}>
+                        <a className={classes.eventLink} href={`/event/${event._id}`} key={event._id}>
                             <div className={`mb-2 ${classes.eventCard}`}>
                                 <div className="container d-flex px-0">
                                     <div className="col-11">
                                         <h4>{event.eventTitle}</h4>
-                                        <p>{event.eventDate}</p>
+                                        <p>{dateFormat(event.eventDate)}</p>
                                     </div>
-                                    <div className="col-1 d-flex justify-content-end">
-                                            <AiOutlineCloseSquare data-event-id={event._id} className={classes.deleteEventBtn} size="20px" onClick={handleEventDelete}/>
+                                    <div className="col-1 d-flex justify-content-end align-items-center">
+                                            <AiFillDelete data-event-id={event._id} className={classes.deleteEventBtn} size="25px" onClick={handleEventDelete}/>
                                     </div>
                                 </div>
                             </div>

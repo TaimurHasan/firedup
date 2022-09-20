@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import AddEvent from './pages/AddEvent';
+import EventDetails from './pages/EventDetails';
 import Home from './pages/Home';
 
 const httpLink = createHttpLink({
@@ -56,6 +57,10 @@ function App() {
               <Route
                 path="/addevent"
                 element= {<AddEvent />}
+              />
+              <Route
+                path="/event/:id"
+                element= {<EventDetails />}
               />
             </Routes>
           </div>

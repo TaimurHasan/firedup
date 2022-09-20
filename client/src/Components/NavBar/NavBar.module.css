@@ -1,3 +1,14 @@
+.logoImage {
+    display: flex;
+    align-items: center;
+}
+
+.logoImage img{
+    height: 80px;
+    padding: 10px;
+    margin-bottom: 4px;
+}
+
 .NavBar {
     display: flex;
     justify-content: space-between;
@@ -15,11 +26,11 @@
 }
 
 .NavBar a:hover {
-    color: #fc966e;
+    color: #ef8a2c;
 }
 
 .NavBar h1:hover {
-    color: rgb(255, 163, 64);
+    color:  #ef8a2c;
     transition: all 0.2s ease-in-out;
 }
 

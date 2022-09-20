@@ -30,6 +30,10 @@ const resolvers = {
         },
         events: async(parent, { username }) => {
             return Event.find({ username })
+        },
+        event: async(parent, { eventId }) => {
+            return Event.findOne({ _id: eventId })
+                .populate('attendees')
         }
     },
     Mutation: {

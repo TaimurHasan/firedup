@@ -12,7 +12,6 @@ const eventSchema = new Schema(
         eventDate: {
             type: Date,
             required: 'Your event needs a set time!',
-            get: timestamp => moment(timestamp).format("MMM Do YYYY, h:mm a")
         },
         createdAt: {
             type: Date,

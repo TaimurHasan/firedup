@@ -1,0 +1,30 @@
+.eventDetails h2{
+    font-size: 54px;
+    color: rgb(43, 41, 41);
+}
+
+.friendLink {
+    text-decoration: none;
+}
+
+.friendCard {
+    width: 50%;
+    text-align: center;
+    background-color: rgba(228,136,96, 0.4);
+    border-radius: 5px;
+}
+
+.friendCard h4 {
+    font-size: 20px;
+    color: rgb(43, 41, 41);
+}
+
+.addFriendBtn:hover {
+    color: rgba(228,136,96, 1);
+    cursor: pointer;
+}
+
+.daysLeft {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.5);
+}
