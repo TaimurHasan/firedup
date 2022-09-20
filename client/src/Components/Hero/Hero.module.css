@@ -1,4 +1,7 @@
 .hero {
-    height: 500px;
-    background-color: #fc966e;
+    height: 650px;
+    background-image: url('../../assets/images/fireduphero.jpg');
+    background-position: 100% 30%;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

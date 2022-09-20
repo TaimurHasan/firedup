@@ -1,0 +1,19 @@
+.homeIntro {
+    padding: 3% 0%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+span {
+    color: #a65000;
+    cursor: text;
+}
+
+.homeIntro h2 {
+    font-size: 42px;
+}
+
+.homeIntro p {
+    font-size: 18px;
+}
