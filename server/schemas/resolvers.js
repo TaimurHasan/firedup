@@ -108,6 +108,12 @@ const resolvers = {
         addFriend: async(parent, { friendId }, context) => {
             if(context.user) {
                 if(context.user._id !== friendId) {
+                    const updatedFriend = await User.findOneAndUpdate(
+                        { _id: friendId },
+                        { $addToSet: { friends: context.user._id } },
+                        {new: true}
+                    ).populate('friends');
+
                     const updatedUser = await User.findOneAndUpdate(
                         { _id: context.user._id },
                         { $addToSet: { friends: friendId } },

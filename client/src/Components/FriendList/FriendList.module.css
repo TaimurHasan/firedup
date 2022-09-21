@@ -18,3 +18,22 @@
     color: rgba(228,136,96, 1);
     cursor: pointer;
 }
+
+.addFriendDiv {
+    display: flex;
+    justify-content: center;
+    padding: 4%;
+    background-color: rgba(228,136,96, 0.1);
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 98%;
+}
+.addFriendDiv form {
+    width: 90%;
+}
+
+.addFriendDiv form input{
+    border: 1px solid black;
+    padding: 0% 2%;
+    border-radius: 5px;
+}

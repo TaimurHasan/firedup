@@ -47,3 +47,15 @@ export const DELETE_EVENT = gql`
     }
   }
 `
+
+export const ADD_FRIEND = gql`
+  mutation AddFriend($friendId: ID!) {
+    addFriend(friendId: $friendId) {
+      username,
+      friends {
+        _id
+        username
+      }
+    }
+  }
+`

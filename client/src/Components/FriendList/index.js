@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import classes from './FriendList.module.css';
-import { AiOutlineUsergroupAdd } from 'react-icons/ai';
+import { AiOutlineUsergroupAdd, AiOutlineClose } from 'react-icons/ai';
 
 const FriendList = ({ friends }) => {
+    const [ expanded, setExpanded ] = useState(false);
+    const ref = useRef(null);
+
+    const expand = () => {
+        setExpanded(true);
+        ref.focus();
+    };
+
+    const close = (event) => {
+        setExpanded(false);
+    };
 
     return (
         <div className="container my-4">
             <div className="container d-flex justify-content-between">
                 <h3 className="mx-1">Your Friends:</h3>
-                <AiOutlineUsergroupAdd className = {classes.addFriendBtn} size = "35px"/>
+                {expanded ? (
+                        <AiOutlineClose onClick={close} className = {`${classes.addFriendBtn}`} size = "35px"/>
+                    ) : (
+                        <AiOutlineUsergroupAdd onClick={expand} className = {`${classes.addFriendBtn}`} size = "35px"/>
+                    )
+                }   
             </div>
+            {expanded && 
+                <div className={`mb-4 ${classes.addFriendDiv}`}>
+                    <form>
+                        <input
+                            ref={ref}
+                            className='w-100'
+                            placeholder="Search username..."
+                        />
+                    </form>
+                </div>
+            }
             {friends.length ? (
                 <div className="mx-1">
                     {friends.map(friend => (

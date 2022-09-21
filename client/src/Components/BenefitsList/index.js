@@ -5,7 +5,8 @@ import classes from "./BenefitsList.module.css";
 const BenefitsList = () => {
 
     const benefits = [
-        {
+        {   
+            key: 1,
             name: "Add Friends",
             image: createEvent,
             alt: "create event page of firedup",
@@ -13,6 +14,7 @@ const BenefitsList = () => {
             float: "left"
         },
         {
+            key: 2,
             name: "Create Events",
             image: createEvent,
             alt: "create event page of firedup",
@@ -26,7 +28,7 @@ const BenefitsList = () => {
             <div className="container d-flex flex-column align-items-start flex-wrap py-4 px-0">
                 {benefits.map(benefit => (
                     benefit.float === "left" ? (
-                            <div className="d-flex my-4 py-4">
+                            <div key={benefit.key} className="d-flex my-4 py-4">
                                 <div className={classes.image}>
                                     <img src={benefit.image} alt={benefit.alt}/>
                                 </div>
@@ -36,7 +38,7 @@ const BenefitsList = () => {
                                 </div>
                             </div>
                         ) : (
-                            <div className="d-flex my-4 py-4">
+                            <div key={benefit.key} className="d-flex my-4 py-4">
                                 <div className={classes.benefitsDetails}>
                                     <h3>{benefit.name}</h3>
                                     <p>{benefit.description}</p>
