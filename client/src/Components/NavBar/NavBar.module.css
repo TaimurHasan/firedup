@@ -6,6 +6,7 @@
 .logoImage img{
     height: 80px;
     padding: 10px;
+    padding-left: 0;
     margin-bottom: 4px;
 }
 
@@ -81,7 +82,7 @@ span {
 
     .NavBar .MobileNavigation .Hamburger {
         position: absolute;
-        right: 10.5%;
+        right: 5%;
         cursor: pointer;
     }
 
@@ -91,7 +92,7 @@ span {
         position: absolute;
         align-items: flex-end;
         top: 80px;
-        right: 9.5%;
+        right: 4%;
     }
 
     .NavBar nav ul li {

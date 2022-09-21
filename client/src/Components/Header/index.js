@@ -9,7 +9,7 @@ const Header = () => {
         <div className={`container ${classes.NavBar}`}>
             <a href="/">
                 <div className={classes.logoImage} >
-                    <img src={companyLogo} />
+                    <img src={companyLogo} alt="company logo"/>
                     <h1 className="my-2">fired up</h1>
                 </div>
             </a>

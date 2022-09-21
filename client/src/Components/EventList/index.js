@@ -6,7 +6,7 @@ import { dateFormat } from "../../utils/dateFormat";
 import { AiOutlinePlusCircle, AiFillDelete } from 'react-icons/ai'
 
 const EventList = ({ events }) => {
-    const [deleteEvent, { error }] = useMutation(DELETE_EVENT);
+    const [deleteEvent] = useMutation(DELETE_EVENT);
 
     const handleEventDelete = async (event) => {
         event.preventDefault();
@@ -15,11 +15,12 @@ const EventList = ({ events }) => {
 
         if(confirmDelete) {
             const eventId = event.target.getAttribute("data-event-id");
+            console.log(eventId)
             await deleteEvent({
                 variables: { eventId }
             })
 
-            window.location.reload(false);
+            window.location.replace("/dashboard");
         };
     }
 
@@ -41,8 +42,8 @@ const EventList = ({ events }) => {
                                         <h4>{event.eventTitle}</h4>
                                         <p>{dateFormat(event.eventDate)}</p>
                                     </div>
-                                    <div className="col-1 d-flex justify-content-end align-items-center">
-                                            <AiFillDelete data-event-id={event._id} className={classes.deleteEventBtn} size="25px" onClick={handleEventDelete}/>
+                                    <div data-event-id={event._id} onClick={handleEventDelete} className="col-1 d-flex justify-content-end align-items-center">
+                                            <AiFillDelete data-event-id={event._id} className={classes.deleteEventBtn} size="25px" />
                                     </div>
                                 </div>
                             </div>

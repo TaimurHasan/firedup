@@ -8,13 +8,15 @@ import Loading from "../Components/Loading";
 const Dashboard = () => {
     const { loading, data } = useQuery(QUERY_ME);
 
-    const user = data?.me || {};
-
     if(loading) {
         return(
             <Loading />
         )
     };
+
+    const user = data?.me || {};
+
+    console.log(user.events)
 
     return(
         <div className="container">
