@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import classes from './FriendList.module.css';
-import { AiOutlineUsergroupAdd, AiOutlineClose } from 'react-icons/ai';
-import { useLazyQuery } from "@apollo/client";
+import { AiOutlineUsergroupAdd, AiOutlineClose, AiOutlinePlus } from 'react-icons/ai';
+import { useLazyQuery, useMutation } from "@apollo/client";
 import { QUERY_USER } from "../../utils/queries";
+import { ADD_FRIEND } from "../../utils/mutations";
 
 const FriendList = ({ friends }) => {
     const [getUser] = useLazyQuery(QUERY_USER);
+    const [addFriend] = useMutation(ADD_FRIEND);
     const [ username, setUsername ] = useState('');
     const [ expanded, setExpanded ] = useState(false);
     const [ searchedFriend, setSearchedFriend ] = useState('');
@@ -39,9 +41,17 @@ const FriendList = ({ friends }) => {
             setSearchedFriend('');
             setNoFriend(true)
         };
-
-        console.log(searchedFriend)
     };
+
+    const handleAddFriend = async () => {
+        await addFriend({
+            variables: {
+                friendId: searchedFriend._id
+            }
+        });
+
+        window.location.replace('/dashboard');
+    }
 
     return (
         <div className="container my-4">
@@ -56,7 +66,7 @@ const FriendList = ({ friends }) => {
             </div>
             {expanded && 
                 <div className={`mb-4 ${classes.friendCard} ${classes.addFriendDiv}`}>
-                    <form onSubmit={handleUsernameSubmit}>
+                    <form autoComplete="off" onSubmit={handleUsernameSubmit}>
                         <input
                             className='w-100'
                             placeholder="Search username..."
@@ -70,11 +80,12 @@ const FriendList = ({ friends }) => {
                                 <div>
                                     <h4>{searchedFriend.username}</h4>
                                 </div>
+                                <AiOutlinePlus onClick={handleAddFriend} className = {`${classes.addFriendBtn}`} size = "20px"/>
                             </div>
                     )
                     }
                     {noFriend && (
-                        <div>No users found.</div>
+                        <div className="mt-4">No users found.</div>
                     )}
                 </div>
             }
