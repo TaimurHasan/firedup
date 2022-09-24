@@ -21,7 +21,9 @@
 
 .addFriendDiv {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 4%;
     background-color: rgba(228,136,96, 0.1);
     border-radius: 10px;
@@ -36,4 +38,17 @@
     border: 1px solid black;
     padding: 0% 2%;
     border-radius: 5px;
+}
+
+.friendAddCard {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(153, 219, 255);
+    border-radius: 5px;
+}
+
+.friendAddCard h4 {
+    font-size: 20px;
+    color: rgb(43, 41, 41);
+    margin: 0;
 }
