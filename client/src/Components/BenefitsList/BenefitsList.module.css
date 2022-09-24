@@ -7,13 +7,17 @@
     width: 100%;
 }
 
+.benefitCard {
+    justify-content: center;
+}
+
 .image {
     position: relative;
-    flex: 1 30%;
 }
 
 .image img {
-    height: 100%;
+    height: 500px;
+    width: fit-content;
     border-radius: 15px;
     vertical-align: top;
 }
@@ -40,7 +44,7 @@
     justify-content: center;
     padding: 1% 4%;
     border-radius: 15px;
-    flex: 2 70%;
+    width: 75%;
 }
 
 .benefitsDetails h3 {
@@ -52,7 +56,7 @@
 }
 
 .benefitsDetails p {
-    width: fit-content;
+    width: content;
     font-size: 20px;
     border-radius: 15px;
     padding: 10px;
