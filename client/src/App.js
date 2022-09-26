@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard';
 import AddEvent from './pages/AddEvent';
 import EventDetails from './pages/EventDetails';
 import Home from './pages/Home';
+import Footer from './Components/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -40,7 +41,13 @@ function App() {
             <Routes>
               <Route
                 path="/"
-                element= {<Home />}
+                element= {(
+                    <>
+                      <Home />
+                      <Footer />
+                    </>
+                  )
+                }
               />
               <Route
                 path="/login"
