@@ -8,13 +8,10 @@ import { AiOutlinePlusCircle, AiFillDelete } from 'react-icons/ai'
 const EventList = ({ events }) => {
     const [deleteEvent] = useMutation(DELETE_EVENT);
 
-    const handleEventDelete = async (event) => {
-        event.preventDefault();
-
+    const handleEventDelete = async (eventId) => {
         const confirmDelete = window.confirm('Are you sure you want to delete this event?')
 
         if(confirmDelete) {
-            const eventId = event.target.getAttribute("data-event-id");
             console.log(eventId)
             await deleteEvent({
                 variables: { eventId }
@@ -43,8 +40,8 @@ const EventList = ({ events }) => {
                                         <p>{dateFormat(event.eventDate)}</p>
                                         <p>Created By {event.username}</p>
                                     </div>
-                                    <div data-event-id={event._id} onClick={handleEventDelete} className="col-1 d-flex justify-content-end align-items-center">
-                                            <AiFillDelete data-event-id={event._id} className={classes.deleteEventBtn} size="25px" />
+                                    <div className="col-1 d-flex justify-content-end align-items-center">
+                                            <AiFillDelete onClick={() => handleEventDelete(event._id)} className={classes.deleteEventBtn} size="25px" />
                                     </div>
                                 </div>
                             </div>
