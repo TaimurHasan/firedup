@@ -5,18 +5,20 @@ import { DELETE_EVENT } from "../../utils/mutations";
 import { dateFormat } from "../../utils/dateFormat";
 import { AiOutlinePlusCircle, AiFillDelete } from 'react-icons/ai'
 
-const EventList = ({ events }) => {
+const EventList = ({ events, username }) => {
     const [deleteEvent] = useMutation(DELETE_EVENT);
 
     const handleEventDelete = async (eventId) => {
+        console.log(eventId)
         const confirmDelete = window.confirm('Are you sure you want to delete this event?')
 
         if(confirmDelete) {
-            console.log(eventId)
             await deleteEvent({
                 variables: { eventId }
             })
 
+            window.location.replace("/dashboard");
+        } else {
             window.location.replace("/dashboard");
         };
     }
@@ -38,11 +40,13 @@ const EventList = ({ events }) => {
                                     <div className="col-11">
                                         <h4>{event.eventTitle}</h4>
                                         <p>{dateFormat(event.eventDate)}</p>
-                                        <p>Created By {event.username}</p>
+                                        <p>Created by {event.username === username ? `you` : event.username}</p>
                                     </div>
-                                    <div className="col-1 d-flex justify-content-end align-items-center">
-                                            <AiFillDelete onClick={() => handleEventDelete(event._id)} className={classes.deleteEventBtn} size="25px" />
-                                    </div>
+                                    {event.username === username &&
+                                        <div className="col-1 d-flex justify-content-end align-items-center">
+                                                <AiFillDelete onClick={() => handleEventDelete(event._id) } className={classes.deleteEventBtn} size="25px" />
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </a>
