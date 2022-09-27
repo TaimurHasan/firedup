@@ -11,7 +11,7 @@ const Login = () => {
 
     //  if logged in, redirect to dashboard
     if(Auth.loggedIn()) {
-        return <Navigate replace to='/' />
+        return <Navigate replace to='/dashboard' />
     };
     
 
@@ -24,7 +24,7 @@ const Login = () => {
         
             Auth.login(data.login.token);
         } catch (e) {
-        console.log(e);
+            console.log(e);
         }
     };
 
@@ -34,7 +34,6 @@ const Login = () => {
         ...formState,
         [name]: value,
         });
-        console.log(formState)
     };
 
     return (

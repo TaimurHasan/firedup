@@ -10,6 +10,7 @@ export const QUERY_ME = gql`
             username
         }
         events {
+            username
             _id
             eventTitle
             eventDate
@@ -47,12 +48,13 @@ export const QUERY_EVENTS = gql`
 export const QUERY_EVENT = gql`
 query Event($eventId: ID!) {
     event(eventId: $eventId) {
-      eventTitle
-      eventDate
-      attendees {
-        _id
         username
-      }
+        eventTitle
+        eventDate
+        attendees {
+            _id
+            username
+        }
     }
   }
 `
