@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import { ADD_EVENT } from "../utils/mutations";
+import Auth from '../utils/auth';
+import { Navigate } from "react-router-dom";
 import classes from "../css/AddEvent.module.css"
 
 const AddEvent = () => {
@@ -10,6 +12,11 @@ const AddEvent = () => {
 
     const { data } = useQuery(QUERY_ME);
     const [addEvent, { error }] = useMutation(ADD_EVENT);
+
+    //  if not logged in, redirect to login page
+    if(!Auth.loggedIn()) {
+        return <Navigate replace to='/login' />
+    };
 
     const userFriends = data?.me.friends || [];
 

@@ -4,6 +4,7 @@ import { QUERY_EVENT } from "../utils/queries";
 import { useParams } from "react-router-dom";
 import { dateFormat, calcDaysLeft } from "../utils/dateFormat";
 import Auth from '../utils/auth';
+import { Navigate } from "react-router-dom";
 import Loading from "../Components/Loading";
 import classes from '../css/EventDetails.module.css'
 
@@ -14,6 +15,11 @@ const EventDetails = () => {
             eventId
         }
     });
+    
+    //  if not logged in, redirect to login page
+    if(!Auth.loggedIn()) {
+        return <Navigate replace to='/login' />
+    };
 
     if(loading) {
         return(
