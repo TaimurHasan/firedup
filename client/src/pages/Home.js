@@ -1,9 +1,16 @@
 import React from "react";
 import Hero from "../Components/Hero";
 import BenefitsList from "../Components/BenefitsList";
-import classes from "../css/Home.module.css"
+import Auth from '../utils/auth';
+import { Navigate } from "react-router-dom";
+import classes from "../css/Home.module.css";
 
 const Home = () => {
+    //  if logged in, redirect to dashboard
+    if(Auth.loggedIn()) {
+        return <Navigate replace to='/dashboard' />
+    };
+
     return(
         <div>
             <Hero />

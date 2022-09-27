@@ -39,10 +39,13 @@ const resolvers = {
     Mutation: {
         addUser: async (parent, args) => {
             const username = args.username;
-            const found = await User.findOne({ username })
+            const email = args.email;
 
-            if(found) {
-                throw new AuthenticationError('This username is already taken!');
+            const found = await User.findOne({ username })
+            const found2 = await User.findOne({ email })
+
+            if(found || found2 ) {
+                throw new AuthenticationError('This email or username is already taken!');
             };
 
             const user = await User.create(args);
@@ -79,6 +82,15 @@ const resolvers = {
                     { new: true }
                 );
 
+                // for loop to add event to each attendees event list
+                for (let i = 0; i < args.attendees.length; i++) {
+                    await User.findByIdAndUpdate(
+                        { _id: args.attendees[i] },
+                        { $push: { events: event._id } },
+                        { new: true }
+                    )
+                };
+
                 return event;
             };
 
@@ -96,6 +108,15 @@ const resolvers = {
                         { $pull: { events: eventId } },
                         { new: true }
                     );
+                    
+                    // for loop to remove event to from attendees event list
+                    for (let i = 0; i < event.attendees.length; i++) {
+                        await User.findByIdAndUpdate(
+                            { _id: event.attendees[i] },
+                            { $pull: { events: event._id } },
+                            { new: true }
+                        )
+                    };
 
                     return event;
                 } else {

@@ -10,6 +10,7 @@ export const QUERY_ME = gql`
             username
         }
         events {
+            username
             _id
             eventTitle
             eventDate

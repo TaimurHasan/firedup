@@ -11,7 +11,7 @@ const Signup = () => {
 
     //  if logged in, redirect to dashboard
     if(Auth.loggedIn()) {
-        return <Navigate replace to='/' />
+        return <Navigate replace to='/dashboard' />
     };
 
     const handleFormSubmit = async (event) => {
@@ -33,7 +33,6 @@ const Signup = () => {
         ...formState,
         [name]: value,
         });
-        console.log(formState)
     };
 
     return (

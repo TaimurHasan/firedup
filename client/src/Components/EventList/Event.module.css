@@ -21,6 +21,7 @@
 
 .eventCard p {
     color: rgb(44, 45, 46);
+    margin-bottom: 0;
 }
 
 .eventCard:hover {

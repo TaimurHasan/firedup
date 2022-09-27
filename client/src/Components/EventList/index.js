@@ -41,6 +41,7 @@ const EventList = ({ events }) => {
                                     <div className="col-11">
                                         <h4>{event.eventTitle}</h4>
                                         <p>{dateFormat(event.eventDate)}</p>
+                                        <p>Created By {event.username}</p>
                                     </div>
                                     <div data-event-id={event._id} onClick={handleEventDelete} className="col-1 d-flex justify-content-end align-items-center">
                                             <AiFillDelete data-event-id={event._id} className={classes.deleteEventBtn} size="25px" />

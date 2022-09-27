@@ -103,7 +103,7 @@ const FriendList = ({ friends }) => {
                     ))}
                 </div>
             ) : (
-                <div className="mx-2">You have no friends yet. Add some friends!</div>
+                <div className="mx-2 container">You have no friends yet. Add some friends!</div>
             )}
         </div>
     )
