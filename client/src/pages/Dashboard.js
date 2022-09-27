@@ -24,8 +24,6 @@ const Dashboard = () => {
 
     const user = data?.me || {};
 
-    console.log(user.events)
-
     return(
         <div className="container">
             <h2 className="my-3 mx-1">Welcome, {user.username}!</h2>

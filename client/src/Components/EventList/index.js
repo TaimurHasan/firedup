@@ -8,8 +8,8 @@ import { AiOutlinePlusCircle, AiFillDelete } from 'react-icons/ai'
 const EventList = ({ events, username }) => {
     const [deleteEvent] = useMutation(DELETE_EVENT);
 
-    const handleEventDelete = async (eventId) => {
-        console.log(eventId)
+    const handleEventDelete = async (event, eventId) => {
+        event.preventDefault();
         const confirmDelete = window.confirm('Are you sure you want to delete this event?')
 
         if(confirmDelete) {
@@ -33,18 +33,18 @@ const EventList = ({ events, username }) => {
             </div>
             {events.length ? (
                 <div className="mx-1">
-                    {events.map(event => (
-                        <a className={classes.eventLink} href={`/event/${event._id}`} key={event._id}>
+                    {events.map(thisEvent => (
+                        <a className={classes.eventLink} href={`/event/${thisEvent._id}`} key={thisEvent._id}>
                             <div className={`mb-2 ${classes.eventCard}`}>
                                 <div className="container d-flex px-0">
                                     <div className="col-11">
-                                        <h4>{event.eventTitle}</h4>
-                                        <p>{dateFormat(event.eventDate)}</p>
-                                        <p>Created by {event.username === username ? `you` : event.username}</p>
+                                        <h4>{thisEvent.eventTitle}</h4>
+                                        <p>{dateFormat(thisEvent.eventDate)}</p>
+                                        <p>Created by {thisEvent.username === username ? `you` : thisEvent.username}</p>
                                     </div>
-                                    {event.username === username &&
+                                    {thisEvent.username === username &&
                                         <div className="col-1 d-flex justify-content-end align-items-center">
-                                                <AiFillDelete onClick={() => handleEventDelete(event._id) } className={classes.deleteEventBtn} size="25px" />
+                                                <AiFillDelete onClick={event => handleEventDelete(event, thisEvent._id) } className={classes.deleteEventBtn} size="25px" />
                                         </div>
                                     }
                                 </div>
