@@ -1,9 +1,8 @@
 import moment from "moment";
 
 export const dateFormat = (eventDate) => {
-  const date = moment(new Date(eventDate * 1)).format("MMM Do YYYY, h:mm a");
-
-  return date;
+  const date = new Date(eventDate*1);
+  return moment(date).format("MMM Do YYYY, h:mm a");
 };
 
 export const calcDaysLeft = (eventDate) => {
