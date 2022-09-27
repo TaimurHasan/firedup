@@ -1,9 +1,11 @@
 # fired up
 ## Description
-[![firedup logo](./images/firedupheader.png)]()
+[![firedup logo](./images/firedupheader.png)](https://firedupbytaimur.herokuapp.com/)
 
 <br/>
 firedup is a friend-based event scheduling platform, which allows users to create an account and schedule events for friends added on the application. Future development will allow friends to be able to specify, on their calendar, which days they are 'fired up' to be invited to events and plan activities with their friends<br/>
+
+The motivation behind this application was to re-ignite connections with old friends. After university, I noticed that making plans became a lot more difficult, especially with busy schedules forcing me to lose sight of my personal life. firedup is a solution which can help connect friends and family by encouraging double-sided and continuous communication of events, close friend circles, and willingness to make plans.
 
 <br/>
 <br/>
@@ -40,9 +42,11 @@ To run this application locally, follow the steps listed below:
 <a name="usage"></a>
 
 ## Usage
-To use this application, please visit the deployed application on (live deployment pending). <br/>
+To use this application, please visit the deployed application on [Heroku](https://firedupbytaimur.herokuapp.com/). <br/>
 
 In order to use the full functionality of this application, please create an account. To create an account, navigate to the 'Login' page from the nav bar and click where prompted to sign up. You will be required to provide a unique username, email, and a password to make an account.
+
+![Homepage](./images/fireduphomepage.png)
 
 <a name="license"></a>
 ## License
