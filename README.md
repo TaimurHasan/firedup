@@ -42,7 +42,7 @@ To run this application locally, follow the steps listed below:
 <a name="usage"></a>
 
 ## Usage
-To use this application, please visit the deployed application on [Heroku](https://firedupbytaimur.herokuapp.com/). <br/>
+To use this application, please visit the deployed application on [Railway](https://firedup-production.up.railway.app/). <br/>
 
 In order to use the full functionality of this application, please create an account. To create an account, navigate to the 'Login' page from the nav bar and click where prompted to sign up. You will be required to provide a unique username, email, and a password to make an account.
 
